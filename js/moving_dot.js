@@ -44,19 +44,19 @@ $(document).ready(function(){
         collision(obCoord2);
         collision(obCoord3);
      //key inputs
-                var move = function( a, b, c , d){   // a = uncode key, b = left or top , c and d = + or -
+                var move = function( a, b, c , d, axis, edge){   // a = uncode key, b = left or top , c and d = + or -, axis = x or y
                     if(e.keyCode == a) {
-                        if ( x == 0 ) {
+                        if ( axis == edge ) {
                           $('#dot').css( b, c + '=400px');
                           }
                           $('#dot').css( b, d + '=5px');
                           Update();
                        }
                 }
-                move(37,'left','+','-');
-                move(38,'top','+','-');
-                move(39,'left','-','+');
-                move(40,'top','-','+');
+                move(37,'left','+','-',x, 0);
+                move(38,'top','+','-',y, 0);
+                move(39,'left','-','+',x,395);
+                move(40,'top','-','+',y,395);
         //coin pickup handling
         var coinPickUp =  function(c,id) {       // c is the coordinates of the picked-up coin, id its html id
             Update();
