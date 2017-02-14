@@ -1,0 +1,126 @@
+html, body
+    height: 100%
+    background-color: lightgray
+    margin: 0
+    text-align: center
+
+h1
+    margin: 0
+
+.UI
+    margin: 0
+
+#field
+    width: 400px
+    height: 400px
+    background-color: darkgray
+    border: solid 1px white
+    margin: 0   auto
+    position: relative
+
+#dot
+    width: 5px
+    height: 5px
+    background-color: red
+    position: absolute
+    top: 50%
+    left: 50%
+
+.obstacle
+    width: 50px
+    height: 50px
+    background-color: #333
+    position: absolute
+
+#obstacle1
+    top: 0
+    left: 100px
+    animation-name: ob1mov
+    animation-duration: 2.5s
+    -webkit-animation-direction: alternate
+    animation-iteration-count: infinite
+    animation-timing-function: steps(30)
+
+#obstacle2
+    bottom: 0
+    right: 100px
+    animation-name: ob2mov
+    animation-duration: 2.5s
+    -webkit-animation-direction: alternate
+    animation-iteration-count: infinite
+    animation-timing-function: steps(30)
+
+#obstacle3
+    top: 175px
+    left: 175px
+    transform: translateY(150px)
+    animation-name: ob3mov
+    animation-duration: 3s
+    animation-iteration-count: infinite
+    animation-timing-function: steps(30)
+
+
+@keyframes ob1mov
+    from
+        top: 0
+    to
+        top: 360px
+
+@keyframes ob2mov
+    from
+        bottom: 0
+    to
+        bottom: 350px
+
+@keyframes ob3mov
+    from
+        transform:  rotate(0DEG) translateY(150px) rotate(0DEG)
+    to
+        transform:  rotate(360DEG) translateY(150px) rotate(-360DEG)
+
+
+.coincolor
+    width: 100%
+    height : 100%
+    background-color: gold
+    border-radius: 50%
+    border: solid white 2px
+    animation-name: color_change
+    animation-duration: 1.5s
+    animation-iteration-count: infinite
+    -webkit-animation-direction: alternate
+    animation-timing-function: steps(20)
+
+
+@keyframes color_change
+    from
+        background-color: gold
+        transform: none
+    to
+        background-color: OrangeRed
+        transform: rotateY(360DEG)
+
+.coin
+    width: 20px
+    height: 20px
+    position: absolute
+
+#coin1
+    top: 20px
+    left: 20px
+
+#coin2
+    top: 20px
+    left: 360px
+
+#coin3
+    top: 360px
+    left: 360px
+
+#coin4
+    top: 360px
+    left: 20px
+
+
+.hidden
+    display: none
