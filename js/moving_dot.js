@@ -22,27 +22,32 @@ $(document).ready(function(){
         obCoord2 = document.getElementById('obstacle2').getBoundingClientRect();
         obCoord3 = document.getElementById('obstacle3').getBoundingClientRect();
     }
-    //user player movement handling
-    $("body").keydown(function(e) {
+
     //collisions handling
-        var collision = function(o) {       // o is the coordinates of the obstacle object
-            Update();
-            if ( (playerCoord.left > o.left && playerCoord.left < o.right) &&
-                  (playerCoord.top > o.top && playerCoord.top < o.bottom) ){
-                  $("#life" + lives).addClass('hidden')
-                  lives = lives-1;
-                  $('#dot').css('left', '200px');
-                  $('#dot').css('top', '200px');
-                  Update();
-                  if (lives == 0) {
-                      $('#field').addClass('hidden')
-                      alert('Game Over. Refresh page to try again.');
-                  }
-            }
+    var collision = function(o) {       // o is the coordinates of the obstacle object
+        Update();
+        if ( (playerCoord.left > o.left && playerCoord.left < o.right) &&
+              (playerCoord.top > o.top && playerCoord.top < o.bottom) ){
+              $("#life" + lives).addClass('hidden')
+              lives = lives-1;
+              $('#dot').css('left', '200px');
+              $('#dot').css('top', '200px');
+              Update();
+              if (lives == 0) {
+                  $('#field').addClass('hidden')
+                  alert('Game Over. Refresh page to try again.');
+              }
         }
+    }
+
+    setInterval(function(){
         collision(obCoord1);
         collision(obCoord2);
         collision(obCoord3);
+    }, 100);    
+
+    //user player movement handling
+    $("body").keydown(function(e) {
      //key inputs
                 var move = function( a, b, c , d, axis, edge){   // a = uncode key, b = left or top , c and d = + or -, axis = x or y
                     if(e.keyCode == a) {
