@@ -32,10 +32,16 @@ $(document).ready(function(){
               lives = lives-1;
               $('#dot').css('left', '200px');
               $('#dot').css('top', '200px');
+              $('#field').addClass('hit');
+              setTimeout(function(){
+                  $('#field').removeClass('hit');
+              }, 1500)
               Update();
               if (lives == 0) {
-                  $('#field').addClass('hidden')
-                  alert('Game Over. Refresh page to try again.');
+                  $('#game').addClass('fade_out');
+                  setTimeout(function(){
+                      $("#game_over").addClass('game_end_anim')
+                  }, 1000);
               }
         }
     }
@@ -44,7 +50,7 @@ $(document).ready(function(){
         collision(obCoord1);
         collision(obCoord2);
         collision(obCoord3);
-    }, 100);    
+    }, 100);
 
     //user player movement handling
     $("body").keydown(function(e) {
@@ -79,8 +85,10 @@ $(document).ready(function(){
              $('#coin2').hasClass('hidden') &&
              $('#coin3').hasClass('hidden') &&
              $('#coin4').hasClass('hidden')){
-                 $('#field').addClass('hidden');
-                 alert('YOU WON !');
+                 $('#game').addClass('fade_out');
+                 setTimeout(function(){
+                     $("#win").addClass('game_end_anim')
+                 }, 1000);
         }
     });
 });

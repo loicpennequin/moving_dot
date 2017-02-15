@@ -1,11 +1,16 @@
 html, body {
-  height: 100%;
-  background-color: lightgray;
+  background-color: black;
   margin: 0;
-  text-align: center; }
+  text-align: center;
+  color: white; }
 
 h1 {
-  margin: 0; }
+  margin: 100px 0 0 0; }
+
+.credits {
+  position: absolute;
+  bottom: 0;
+  left: 0; }
 
 .UI {
   margin: 0; }
@@ -14,9 +19,12 @@ h1 {
   width: 400px;
   height: 400px;
   background-color: darkgray;
+  background: url("../media/bg.jpg");
+  background-size: cover;
   border: solid 1px white;
   margin: 0 auto;
-  position: relative; }
+  position: relative;
+  box-shadow: 0 5px 10px white; }
 
 #dot {
   width: 5px;
@@ -24,13 +32,16 @@ h1 {
   background-color: red;
   position: absolute;
   top: 50%;
-  left: 50%; }
+  left: 50%;
+  box-shadow: 0 0 5px white; }
 
 .obstacle {
   width: 50px;
   height: 50px;
   background-color: #333;
-  position: absolute; }
+  position: absolute;
+  background: url("../media/obstacle.png");
+  background-size: cover; }
 
 #obstacle1 {
   top: 0;
@@ -78,8 +89,9 @@ h1 {
   width: 100%;
   height: 100%;
   background-color: gold;
+  background: url("../media/coin.png");
+  background-size: cover;
   border-radius: 50%;
-  border: solid white 2px;
   animation-name: color_change;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
@@ -91,11 +103,11 @@ h1 {
     background-color: gold;
     transform: none; }
   to {
-    background-color: OrangeRed;
+    background-color: Orange;
     transform: rotateY(360DEG); } }
 .coin {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   position: absolute; }
 
 #coin1 {
@@ -114,7 +126,95 @@ h1 {
   top: 360px;
   left: 20px; }
 
+.messages {
+  position: relative; }
+
+#game_over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 40%;
+  margin: 0 auto;
+  color: #111;
+  font-weight: bolder;
+  font-size: 48px;
+  text-shadow: 3px 3px 5px gold;
+  font-family: arial;
+  opacity: 0; }
+  #game_over p {
+    margin: 0; }
+  #game_over #GO_title {
+    font-size: 65px;
+    margin-bottom: 0; }
+
+.game_end_anim {
+  animation-name: game_end;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards; }
+
+@keyframes game_end {
+  from {
+    transform: none;
+    opacity: 0; }
+  to {
+    transform: translateY(-350px);
+    opacity: 1; } }
+#win {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 40%;
+  margin: 0 auto;
+  color: #111;
+  width: 50%;
+  color: white;
+  font-size: 30px;
+  font-family: arial;
+  opacity: 0; }
+  #win p {
+    margin: 0; }
+  #win #win_title {
+    font-size: 60px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, purple, red);
+    color: transparent;
+    -webkit-background-clip: text;
+    animation-name: win_color;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; }
+
+@keyframes win_color {
+  from {
+    filter: hue-rotate(0DEG); }
+  to {
+    filter: hue-rotate(360DEG); } }
+.hit {
+  animation-name: hit;
+  animation-duration: 1s; }
+
+@keyframes hit {
+  from, to {
+    transform: none; }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px); }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px); } }
 .hidden {
   display: none; }
+
+.fade_out {
+  animation-name: fade_out;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+@keyframes fade_out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
 
 /*# sourceMappingURL=moving_dot.css.map */

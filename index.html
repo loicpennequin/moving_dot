@@ -6,35 +6,48 @@
         <link rel="stylesheet" href="css/moving_dot.css">
     </head>
     <body>
-        <h1>COLLECT THE FOUR COINS TO WIN</h1>
-        <div class="UI">
-            <img id="life1"src="media/heart.png" alt="">
-            <img id="life2"src="media/heart.png" alt="">
-            <img id="life3"src="media/heart.png" alt="">
-            </br>
-        </div>
+        <div id="game">
 
-        <div id="field">
-            <div id="dot"></div>
-            <div class="obstacle" id="obstacle1"></div>
-            <div class="obstacle" id="obstacle2"></div>
-            <div class="obstacle" id="obstacle3"></div>
-            <div class="coin" id="coin1">
-                <div class="coincolor"></div>
-            </div>
-            <div class="coin" id="coin2">
-                <div class="coincolor"></div>
-            </div>
-            <div class="coin" id="coin3">
-                <div class="coincolor"></div>
-            </div>
-            <div class="coin" id="coin4">
-                <div class="coincolor"></div>
+            <h1>COLLECT THE FOUR COINS TO WIN</h1>
+            <div class="UI">
+                <img id="life1"src="media/heart.png" alt="">
+                <img id="life2"src="media/heart.png" alt="">
+                <img id="life3"src="media/heart.png" alt="">
+                </br>
             </div>
 
+            <div id="field">
+                <div id="dot"></div>
+                <div class="obstacle" id="obstacle1"></div>
+                <div class="obstacle" id="obstacle2"></div>
+                <div class="obstacle" id="obstacle3"></div>
+                <div class="coin" id="coin1">
+                    <div class="coincolor"></div>
+                </div>
+                <div class="coin" id="coin2">
+                    <div class="coincolor"></div>
+                </div>
+                <div class="coin" id="coin3">
+                    <div class="coincolor"></div>
+                </div>
+                <div class="coin" id="coin4">
+                    <div class="coincolor"></div>
+                </div>
+
+                </div>
+            </div>
+            <p class="credits">Realised in vanillaJS + jQuery.</p>
+        </div>
+        <div class="messages">
+            <div id="game_over">
+                <p id="GO_title">Game Over.</p>
+                <p>Please Refresh the page to start again.</p>
+            </div>
+            <div id="win">
+                <p id="win_title">CONGRATULATIONS ! ! !</p>
+                <p>you can't use those coins in real life, though. Sorry.</p>
             </div>
         </div>
-        <p>Realised in vanillaJS + jQuery.
 
         <script src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/moving_dot.js"></script>
