@@ -1,6 +1,11 @@
 $(document).ready(function(){
     console.log(window.location.href);
-    var lives = 3;
+    //UPDATING THE UI WITH THE LIVES LEFT FROM LAST LEVEL
+    var lives = localStorage.getItem("storedLives");
+    for (let i = 3 ; i > lives ; i--) {
+        $("#life" + i).addClass('hidden')
+    };
+
 
     //tracking player, coins and obstacles coordinates
     var x = document.getElementById('dot').offsetLeft;
@@ -100,7 +105,6 @@ $(document).ready(function(){
                     }
                 }, 1000);
                 setTimeout(function() {
-                    localStorage.setItem("storedLives",lives);
                     window.location.href = 'level2.html'
                 }, 6000)
         }
