@@ -162,4 +162,96 @@ h1 {
 .obstacle {
   filter: hue-rotate(90DEG) contrast(150%); }
 
+#obstacle1 {
+  top: 0;
+  left: 300px;
+  animation-name: ob1mov;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(40); }
+
+#obstacle2 {
+  top: 0;
+  left: 350px;
+  animation-name: ob2mov;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(30); }
+
+#obstacle3 {
+  top: 175px;
+  left: 0;
+  animation-name: ob3mov;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(30); }
+
+#obstacle4 {
+  top: 350px;
+  left: 50px;
+  animation-name: ob1mov;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(40); }
+
+@keyframes ob1mov {
+  from, to {
+    top: 0; }
+  30% {
+    top: 350px; } }
+@keyframes ob2mov {
+  from, to {
+    top: 0;
+    left: 350px; }
+  25% {
+    top: 350px;
+    left: 350px; }
+  50% {
+    top: 350px;
+    left: 0; }
+  75% {
+    top: 0;
+    left: 0; } }
+@keyframes ob3mov {
+  from, to {
+    top: 175px;
+    left: 0; }
+  25% {
+    top: 350px;
+    left: 175px; }
+  50% {
+    top: 175px;
+    left: 350px; }
+  75% {
+    top: 0;
+    left: 175px; } }
+@keyframes ob4mov {
+  from, to {
+    top: 350px; }
+  30% {
+    top: 0; } }
+#coin1 {
+  top: 50px;
+  left: 50px; }
+
+#coin2 {
+  top: 350px;
+  left: 350px; }
+
+#coin3 {
+  top: 350px;
+  left: 0; }
+
+#coin4 {
+  top: 370px;
+  left: 20px; }
+
+#coin5 {
+  top: 5px;
+  left: 355px; }
+
+#coin6 {
+  top: 30px;
+  left: 375px; }
+
 /*# sourceMappingURL=level2.css.map */

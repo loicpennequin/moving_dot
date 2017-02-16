@@ -14,10 +14,13 @@ $(document).ready(function(){
     var obCoord1 = document.getElementById('obstacle1').getBoundingClientRect();
     var obCoord2 = document.getElementById('obstacle2').getBoundingClientRect();
     var obCoord3 = document.getElementById('obstacle3').getBoundingClientRect();
+    var obCoord4 = document.getElementById('obstacle4').getBoundingClientRect();
     var coin1 = document.getElementById('coin1').getBoundingClientRect();
     var coin2 = document.getElementById('coin2').getBoundingClientRect();
     var coin3 = document.getElementById('coin3').getBoundingClientRect();
     var coin4 = document.getElementById('coin4').getBoundingClientRect();
+    var coin5 = document.getElementById('coin5').getBoundingClientRect();
+    var coin6 = document.getElementById('coin6').getBoundingClientRect();
 
     //update coordinates after key input
     var Update = function() {
@@ -27,6 +30,7 @@ $(document).ready(function(){
         obCoord1 = document.getElementById('obstacle1').getBoundingClientRect();
         obCoord2 = document.getElementById('obstacle2').getBoundingClientRect();
         obCoord3 = document.getElementById('obstacle3').getBoundingClientRect();
+        obCoord4 = document.getElementById('obstacle4').getBoundingClientRect();
     }
 
     //collisions handling
@@ -56,6 +60,7 @@ $(document).ready(function(){
         collision(obCoord1);
         collision(obCoord2);
         collision(obCoord3);
+        collision(obCoord4);
     }, 100);
 
     //user player movement handling
@@ -86,11 +91,16 @@ $(document).ready(function(){
         coinPickUp(coin2, 'coin2');
         coinPickUp(coin3, 'coin3');
         coinPickUp(coin4, 'coin4');
+        coinPickUp(coin5, 'coin5');
+        coinPickUp(coin6, 'coin6');
         //win condition
         if ( $('#coin1').hasClass('hidden') &&
              $('#coin2').hasClass('hidden') &&
              $('#coin3').hasClass('hidden') &&
-             $('#coin4').hasClass('hidden')){
+             $('#coin4').hasClass('hidden') &&
+             $('#coin5').hasClass('hidden') &&
+             $('#coin6').hasClass('hidden')
+         ){
                 $('#game').addClass('fade_out');
                 setTimeout(function(){
                     $("#win").addClass('game_end_anim')
@@ -104,9 +114,7 @@ $(document).ready(function(){
                         }, 1000 * i);
                     }
                 }, 1000);
-                setTimeout(function() {
-                    window.location.href = 'level2.html'
-                }, 6000)
+
         }
     });
 });
