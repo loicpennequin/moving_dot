@@ -1,5 +1,6 @@
 $(document).ready(function(){
     console.log(window.location.href);
+    var locked = false;   //used to prevent player from moving when hit
     //UPDATING THE UI WITH THE LIVES LEFT FROM LAST LEVEL
     var livesStr = localStorage.getItem("storedLives");
     var lives = parseInt(livesStr);  // localstorage stocks variables as a string wtf
@@ -46,9 +47,11 @@ $(document).ready(function(){
               console.log(lives);
               $('#dot').css('left', '200px');
               $('#dot').css('top', '200px');
+              locked = true;
               $('#field').addClass('hit');
               setTimeout(function(){
                   $('#field').removeClass('hit');
+                  locked = false;
               }, 1500)
               Update();
               if (lives == 0) {
@@ -94,10 +97,12 @@ $(document).ready(function(){
                         Update();
                         }
                 }
-                move(37,'left','+','-',x, 0);
-                move(38,'top','+','-',y, 0);
-                move(39,'left','-','+',x,395);
-                move(40,'top','-','+',y,395);
+                if ( locked == false) {
+                    move(37,'left','+','-',x, 0);
+                    move(38,'top','+','-',y, 0);
+                    move(39,'left','-','+',x,395);
+                    move(40,'top','-','+',y,395);
+                }
         //coin pickup handling
         var coinPickUp =  function(c,id) {       // c is the coordinates of the picked-up coin, id its html id
             Update();
