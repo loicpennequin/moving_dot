@@ -172,101 +172,101 @@ h1 {
   height: 100%;
   background: url("../media/bg.jpg");
   background-size: cover;
-  filter: hue-rotate(50DEG); }
+  filter: hue-rotate(100DEG); }
 
+#heart1 {
+  top: 188px;
+  left: 10px;
+  animation-name: heart1mov;
+  animation-duration: 1s;
+  animation-iteration-count: infinite; }
+
+@keyframes heart1mov {
+  from, 66% {
+    opacity: 1; }
+  33% {
+    opacity: 0; } }
 .obstacle {
-  filter: hue-rotate(90DEG) contrast(150%); }
+  filter: hue-rotate(180DEG) contrast(150%); }
 
 #obstacle1 {
-  top: 0;
-  left: 300px;
+  top: 175px;
+  left: 175px;
   animation-name: ob1mov;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: steps(40); }
-
-#obstacle2 {
-  top: 0;
-  left: 350px;
-  animation-name: ob2mov;
-  animation-duration: 8s;
+  animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: steps(30); }
 
-#obstacle3 {
+#obstacle2 {
   top: 175px;
+  left: 175px;
+  animation-name: ob2mov;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(50); }
+
+#obstacle3 {
+  top: 0;
   left: 0;
   animation-name: ob3mov;
-  animation-duration: 6s;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: steps(30); }
 
 #obstacle4 {
   top: 350px;
-  left: 50px;
+  left: 0;
   animation-name: ob4mov;
-  animation-duration: 5s;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: steps(40); }
 
 @keyframes ob1mov {
-  from, to {
-    top: 0; }
-  30% {
-    top: 350px; } }
+  from {
+    transform: rotate(0DEG) translateY(70px) rotate(0DEG); }
+  to {
+    transform: rotate(360DEG) translateY(70px) rotate(-360DEG); } }
 @keyframes ob2mov {
-  from, to {
-    top: 0;
-    left: 350px; }
-  25% {
-    top: 350px;
-    left: 350px; }
-  50% {
-    top: 350px;
-    left: 0; }
-  75% {
-    top: 0;
-    left: 0; } }
+  from {
+    transform: rotate(0DEG) translateY(120px) rotate(0DEG); }
+  to {
+    transform: rotate(-360DEG) translateY(120px) rotate(360DEG); } }
 @keyframes ob3mov {
-  from, to {
-    top: 175px;
-    left: 0; }
-  25% {
-    top: 350px;
-    left: 175px; }
-  50% {
-    top: 175px;
-    left: 350px; }
-  75% {
-    top: 0;
-    left: 175px; } }
-@keyframes ob4mov {
-  from, to {
-    top: 350px; }
+  from {
+    top: 50; }
   30% {
-    top: 0; } }
+    top: 175px; }
+  to {
+    top: 50; } }
+@keyframes ob4mov {
+  from {
+    top: 300px; }
+  30% {
+    top: 175px; }
+  to {
+    top: 300px; } }
 #coin1 {
-  top: 50px;
-  left: 50px; }
+  top: 130px;
+  right: 120px; }
 
 #coin2 {
-  top: 350px;
-  left: 350px; }
+  top: 250px;
+  right: 120px; }
 
 #coin3 {
-  top: 350px;
-  left: 0; }
+  top: 10px;
+  right: 10px; }
 
 #coin4 {
-  top: 370px;
-  left: 20px; }
+  bottom: 10px;
+  right: 10px; }
 
 #coin5 {
-  top: 5px;
-  left: 355px; }
+  top: 10px;
+  left: 10px; }
 
 #coin6 {
-  top: 30px;
-  left: 375px; }
+  bottom: 10px;
+  left: 10px; }
 
-/*# sourceMappingURL=level2.css.map */
+/*# sourceMappingURL=level3.css.map */

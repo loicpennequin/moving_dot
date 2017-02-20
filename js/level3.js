@@ -1,13 +1,15 @@
 $(document).ready(function(){
     console.log(window.location.href);
     //UPDATING THE UI WITH THE LIVES LEFT FROM LAST LEVEL
-    var lives = localStorage.getItem("storedLives");
+    var livesStr = localStorage.getItem("storedLives");
+    var lives = parseInt(livesStr);  // localstorage stocks variables as a string wtf
     for (let i = 3 ; i > lives ; i--) {
         $("#life" + i).addClass('hidden')
     };
+    console.log(lives);
 
 
-    //tracking player, coins and obstacles coordinates
+    //tracking elements coordinates
     var x = document.getElementById('dot').offsetLeft;
     var y = document.getElementById('dot').offsetTop;
     var playerCoord = document.getElementById('dot').getBoundingClientRect();
@@ -21,6 +23,7 @@ $(document).ready(function(){
     var coin4 = document.getElementById('coin4').getBoundingClientRect();
     var coin5 = document.getElementById('coin5').getBoundingClientRect();
     var coin6 = document.getElementById('coin6').getBoundingClientRect();
+    var heart1 = document.getElementById('heart1').getBoundingClientRect();
 
     //update coordinates after key input
     var Update = function() {
@@ -40,6 +43,7 @@ $(document).ready(function(){
               (playerCoord.top > o.top && playerCoord.top < o.bottom) ){
               $("#life" + lives).addClass('hidden')
               lives = lives-1;
+              console.log(lives);
               $('#dot').css('left', '200px');
               $('#dot').css('top', '200px');
               $('#field').addClass('hit');
@@ -55,13 +59,28 @@ $(document).ready(function(){
               }
         }
     }
-
     setInterval(function(){
         collision(obCoord1);
         collision(obCoord2);
         collision(obCoord3);
         collision(obCoord4);
     }, 100);
+    //heart pickup handling
+    var heartPickUp = function(h, id){  //h is the coordinates of the picked-up heart, id is its html id
+        Update();
+        if ( (playerCoord.left > h.left && playerCoord.left < h.right) &&
+              (playerCoord.top > h.top && playerCoord.top < h.bottom)){
+            $('#' + id).addClass('hidden');
+            if (lives < 3) {
+                lives = lives+1;
+                $("#life" + lives).removeClass('hidden');
+            }
+            console.log(lives);
+        };
+    };
+    setInterval(function(){
+        heartPickUp(heart1, 'heart1');
+    }, 200);
 
     //user player movement handling
     $("body").keydown(function(e) {
@@ -70,10 +89,10 @@ $(document).ready(function(){
                     if(e.keyCode == a) {
                         if ( axis == edge ) {
                           $('#dot').css( b, c + '=400px');
-                          }
-                          $('#dot').css( b, d + '=5px');
-                          Update();
-                       }
+                        }
+                        $('#dot').css( b, d + '=5px');
+                        Update();
+                        }
                 }
                 move(37,'left','+','-',x, 0);
                 move(38,'top','+','-',y, 0);
@@ -102,7 +121,6 @@ $(document).ready(function(){
              $('#coin6').hasClass('hidden')
          ){
                 $('#game').addClass('fade_out');
-                $('.obstacle').hide();
                 setTimeout(function(){
                     $("#win").addClass('game_end_anim')
                     $("#timer").html(nextLevelTimer)
@@ -115,12 +133,6 @@ $(document).ready(function(){
                         }, 1000 * i);
                     }
                 }, 1000);
-                setTimeout(function() {
-                    localStorage.clear();
-                    localStorage.setItem("storedLives",lives);
-                    window.location.href = 'level3.html'
-                }, 6000)
-
         }
     });
 });

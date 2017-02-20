@@ -70,7 +70,7 @@ $(document).ready(function(){
                 move(39,'left','-','+',x,395);
                 move(40,'top','-','+',y,395);
         //coin pickup handling
-        var coinPickUp =  function(c,id) {       // c is the coordinates of the picked-up coin, id its html id
+        var coinPickUp =  function(c,id) {       // c is the coordinates of the picked-up coin, id is its html id
             Update();
             if ( (playerCoord.left > c.left && playerCoord.left < c.right) &&
                   (playerCoord.top > c.top && playerCoord.top < c.bottom) ){
